@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_addStudent"
+            android:icon="@drawable/addstudnt"
+            android:title="Add Student" />
+        <!--<item-->
+            <!--android:id="@+id/nav_select"-->
+            <!--android:icon="@drawable/selectstudent"-->
+            <!--android:title="Select Student" />-->
+        <item
+            android:id="@+id/nav_removeActivites"
+            android:icon="@drawable/addactivity"
+            android:title="Add Class Activities" />
+        <!--<item-->
+            <!--android:id="@+id/nav_activity"-->
+            <!--android:icon="@drawable/removeactivity"-->
+            <!--android:title="Remove Class Activities" />-->
+
+        <item
+            android:id="@+id/nav_meal"
+            android:icon="@drawable/addmeal"
+            android:title="Add meal" />
+
+        <!--<item-->
+            <!--android:id="@+id/nav_mealRemove"-->
+            <!--android:icon="@drawable/removemeal"-->
+            <!--android:title="Remove meal" />-->
+
+        <item
+            android:id="@+id/nav_pic"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Take pictures" />
+
+        <item
+        android:id="@+id/addVideo"
+        android:icon="@drawable/video"
+        android:title="Add Video" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <item
+                android:id="@+id/chatting"
+                android:icon="@drawable/chatting"
+                android:title="Chatting" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activites.staff.takePictures">
+
+
+    <EditText
+        android:id="@+id/etchildcode"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:hint="Code for Childern"
+        android:inputType="textPersonName" />
+
+
+    <Button
+        android:textColor="#FFF"
+        android:layout_marginTop="20dp"
+        android:id="@+id/opencamera"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Open Camera"
+        android:background="@drawable/buttonstylebink"/>
+
+    <Button
+        android:textColor="#FFF"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonstylebink"
+        android:id="@+id/uploadImage"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Upload Now !" />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/mychildphoto"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp" />
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/profile"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="My Child Photo" />
+
+        <item
+            android:id="@+id/ViewVideos"
+            android:icon="@drawable/video"
+            android:title="ViewVideos" />
+
+        <item
+            android:id="@+id/nav_class"
+            android:icon="@drawable/addactivity"
+            android:title="Child Activities" />
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/addmeal"
+            android:title="Child Meals" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/chattingForParent"
+                android:icon="@drawable/chatting"
+                android:title="Chatting" />
+        </menu>
+    </item>
+
+</menu>

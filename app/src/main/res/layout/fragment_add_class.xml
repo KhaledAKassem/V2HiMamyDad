@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+<LinearLayout
+android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    tools:context=".Activites.staff.addClassActivity">
+
+
+    <TextView
+        android:textStyle="italic"
+        android:textColor="#FFF"
+        android:id="@+id/textView9"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/donebutton"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:text="Class Activity" />
+
+    <EditText
+        android:id="@+id/getphoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Enter Code For Student" />
+
+    <CheckBox
+        android:id="@+id/goingoutside"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Going Outside" />
+
+    <CheckBox
+        android:id="@+id/goingpark"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Going Park" />
+
+    <CheckBox
+        android:id="@+id/reading"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Reading" />
+
+    <CheckBox
+        android:id="@+id/listeningmusic"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Listening Music" />
+
+    <CheckBox
+        android:id="@+id/dancing"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Dancing" />
+
+    <CheckBox
+        android:id="@+id/drawing"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Drawing" />
+    <View
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:textStyle="italic"
+            android:textColor="#FFF"
+            android:id="@+id/terxx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/donebutton"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Mod for child"
+            android:textSize="30dp" />
+
+
+        <CheckBox
+            android:id="@+id/calm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Calm" />
+
+        <CheckBox
+            android:id="@+id/angry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Angry" />
+
+        <CheckBox
+            android:id="@+id/happy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Happy" />
+
+        <CheckBox
+            android:id="@+id/cooperative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cooperative" />
+
+        <CheckBox
+            android:id="@+id/listening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Listening" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity"
+        android:layout_width="161dp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@drawable/buttonstylebink"
+        android:text="Done Day" />
+
+</LinearLayout>
+</ScrollView>

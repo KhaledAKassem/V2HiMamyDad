@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.MainActivity"
+    android:id="@+id/ff"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pink"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:padding="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome in Mamy App SignUp for adding new Student "
+            android:textColor="#FFF"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/inputforusername"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="UserName" />
+        <EditText
+            android:id="@+id/inputforemail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="10dp"
+            android:hint="Email " />
+        <EditText
+            android:id="@+id/inputforaddress"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/address"
+            android:drawablePadding="10dp"
+            android:hint="Address" />
+        <EditText
+            android:id="@+id/inputforage"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/age"
+            android:drawablePadding="10dp"
+            android:inputType="number"
+            android:hint="Age" />
+        <EditText
+            android:id="@+id/inputforphone"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/phone"
+            android:drawablePadding="10dp"
+            android:inputType="phone"
+            android:hint="Phone" />
+
+        <EditText
+            android:id="@+id/inputforgender"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/gender"
+            android:drawablePadding="10dp"
+            android:hint="Gender" />
+
+        <EditText
+            android:id="@+id/inputforpassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/Signup"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/buttonstylebink"
+            android:drawableRight="@drawable/ic_send_black_24dp"
+            android:text="Add Student"
+            android:textColor="#FFF" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
