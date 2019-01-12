@@ -68,6 +68,11 @@ android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:text="Drawing" />
+    <CheckBox
+        android:id="@+id/learningStories"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="learning Stories" />
     <View
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"

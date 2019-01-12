@@ -13,7 +13,7 @@ public class parent {
     private String Mode;
     private String MorningSnack;
     private String LunchSnack;
-    private  String AfrernoonSnack;
+    private  String AfternoonSnack;
 
 
     public parent(){
@@ -28,7 +28,7 @@ public class parent {
         this.password = password;
     }
 
-    public parent( String id,String password, String name, String gender, String address, String age, String email,String phone,String Activity,String Mode,String MorningSnack, String LunchSnack, String AfrernoonSnack) {
+    public parent( String id,String password, String name, String gender, String address, String age, String email,String phone,String Activity,String Mode,String MorningSnack, String LunchSnack, String AfternoonSnack) {
         this.id=id;
         this.name = name;
         this.gender = gender;
@@ -41,7 +41,7 @@ public class parent {
         this.Mode=Mode;
         this.MorningSnack=MorningSnack;
         this.LunchSnack=LunchSnack;
-        this.AfrernoonSnack=AfrernoonSnack;
+        this.AfternoonSnack=AfternoonSnack;
     }
 
     public String getPhone() {
@@ -64,24 +64,26 @@ public class parent {
         return MorningSnack;
     }
 
-    public void setMorningSnack(String morningSnack) {
-        MorningSnack = morningSnack;
-    }
 
     public String getLunchSnack() {
         return LunchSnack;
+    }
+
+    public void setMorningSnack(String morningSnack) {
+        MorningSnack = morningSnack;
     }
 
     public void setLunchSnack(String lunchSnack) {
         LunchSnack = lunchSnack;
     }
 
-    public String getAfrernoonSnack() {
-        return AfrernoonSnack;
+
+    public String getAfternoonSnack() {
+        return AfternoonSnack;
     }
 
-    public void setAfrernoonSnack(String afrernoonSnack) {
-        AfrernoonSnack = afrernoonSnack;
+    public void setAfternoonSnack(String afternoonSnack) {
+        AfternoonSnack = afternoonSnack;
     }
 
     public String getActivity() {

@@ -11,47 +11,40 @@
         <item
             android:id="@+id/nav_addStudent"
             android:icon="@drawable/addstudnt"
-            android:title="Add Student" />
-        <!--<item-->
-            <!--android:id="@+id/nav_select"-->
-            <!--android:icon="@drawable/selectstudent"-->
-            <!--android:title="Select Student" />-->
+            android:title="Add Kids" />
+
         <item
             android:id="@+id/nav_removeActivites"
             android:icon="@drawable/addactivity"
-            android:title="Add Class Activities" />
-        <!--<item-->
-            <!--android:id="@+id/nav_activity"-->
-            <!--android:icon="@drawable/removeactivity"-->
-            <!--android:title="Remove Class Activities" />-->
+            android:title="Add Activities" />
+
 
         <item
             android:id="@+id/nav_meal"
             android:icon="@drawable/addmeal"
-            android:title="Add meal" />
+            android:title="Add meals" />
 
-        <!--<item-->
-            <!--android:id="@+id/nav_mealRemove"-->
-            <!--android:icon="@drawable/removemeal"-->
-            <!--android:title="Remove meal" />-->
+
 
         <item
             android:id="@+id/nav_pic"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Take pictures" />
+            android:title="Add pictures" />
 
         <item
         android:id="@+id/addVideo"
         android:icon="@drawable/video"
-        android:title="Add Video" />
+        android:title="Add Videos" />
+
+        <item
+            android:id="@+id/protofilo"
+            android:icon="@drawable/ic_assessment_black_24dp"
+            android:title="portfolio and assessments" />
     </group>
 
     <item android:title="Communicate">
         <menu>
-            <!--<item-->
-                <!--android:id="@+id/nav_share"-->
-                <!--android:icon="@drawable/ic_menu_share"-->
-                <!--android:title="Share" />-->
+
             <item
                 android:id="@+id/chatting"
                 android:icon="@drawable/chatting"

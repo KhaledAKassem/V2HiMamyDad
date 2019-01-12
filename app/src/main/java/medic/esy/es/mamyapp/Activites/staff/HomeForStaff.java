@@ -60,6 +60,7 @@ public class HomeForStaff extends AppCompatActivity
 
     }
 
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -69,6 +70,7 @@ public class HomeForStaff extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,7 +85,7 @@ public class HomeForStaff extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the HomeForStaff/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // as you specify a parenticon activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -165,7 +167,12 @@ public class HomeForStaff extends AppCompatActivity
             FragmentManager fragmentManager=getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_main,chattingStaff).commit();
         }
-
+        else if (id == R.id.protofilo) {
+            setTitle("Protofilo & Assesment");
+            portfolioAndAssessments portfolioAndAssessments= new portfolioAndAssessments();
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_main,portfolioAndAssessments).commit();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

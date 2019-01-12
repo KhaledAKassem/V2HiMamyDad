@@ -1,5 +1,6 @@
 package medic.esy.es.mamyapp.Activites.parent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import medic.esy.es.mamyapp.Activites.MainActivity;
 import medic.esy.es.mamyapp.R;
 
 public class HomeForParent extends AppCompatActivity
@@ -76,7 +78,8 @@ public class HomeForParent extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.signout_parent) {
+            startActivity(new Intent(HomeForParent.this,MainActivity.class));
             return true;
         }
 
@@ -130,8 +133,29 @@ public class HomeForParent extends AppCompatActivity
             FragmentManager fragmentManager=getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.contentParent,chattingForParent).commit();
 
-
         }
+        else if (id == R.id.modeitem) {
+
+            setTitle("Child Mode");
+            mode mode= new mode();
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.contentParent,mode).commit();
+        }
+        else if (id == R.id.modeitem) {
+
+            setTitle("Child Mode");
+            mode mode= new mode();
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.contentParent,mode).commit();
+        }
+        else if (id == R.id.calender) {
+
+            setTitle("Calender");
+            calender calender= new calender();
+            FragmentManager fragmentManager=getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.contentParent,calender).commit();
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

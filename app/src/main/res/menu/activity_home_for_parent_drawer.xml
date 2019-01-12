@@ -13,23 +13,33 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="My Child Photo" />
+            android:title="View Photos" />
 
         <item
             android:id="@+id/ViewVideos"
             android:icon="@drawable/video"
-            android:title="ViewVideos" />
+            android:title="Veiw Videos" />
 
         <item
             android:id="@+id/nav_class"
             android:icon="@drawable/addactivity"
-            android:title="Child Activities" />
+            android:title="View Activities" />
 
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/addmeal"
-            android:title="Child Meals" />
+            android:title="View Meals" />
 
+        <item
+            android:id="@+id/modeitem"
+            android:icon="@drawable/mode"
+            android:title="View Modes" />
+
+        <item
+            android:id="@+id/calender"
+            android:icon="@drawable/ic_schedule_black_24dp"
+            android:title="Calender" />
+z
     </group>
 
     <item android:title="Communicate">

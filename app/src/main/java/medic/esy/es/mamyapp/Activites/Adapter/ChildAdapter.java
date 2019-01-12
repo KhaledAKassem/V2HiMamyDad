@@ -26,7 +26,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ViewHolder> 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            name=(TextView)itemView.findViewById(R.id.childName);
+//            name=(TextView)itemView.findViewById(R.id.childName);
 
         }
 

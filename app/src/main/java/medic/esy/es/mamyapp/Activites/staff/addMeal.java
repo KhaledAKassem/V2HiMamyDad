@@ -117,7 +117,7 @@ public class addMeal extends Fragment {
             resultforlunch.append("Juice ,");
         }
         if(waterLunch.isChecked()){
-            resultforlunch.append("Water ,");
+            resultforlunch.append("Water ");
         }
 
         //////////////////////////////////////////////////////////////////////////////////////
@@ -152,7 +152,7 @@ public class addMeal extends Fragment {
             result.append("Breads , ");
         }
         if(cheeses.isChecked()){
-            result.append("Cheeses , ");
+            result.append("Cheeses ");
         }
 
 
@@ -163,7 +163,6 @@ public class addMeal extends Fragment {
         if(fluidafternoon.isChecked()){
             resultforafternoon.append("Fluid ,");
         }
-
 
         if(icecreamafternoon.isChecked()){
             resultforafternoon.append("Ice Cream ,");
@@ -188,7 +187,7 @@ public class addMeal extends Fragment {
             resultforafternoon.append("Breads , ");
         }
         if(cheesesafternoon.isChecked()){
-            resultforafternoon.append("Cheeses , ");
+            resultforafternoon.append("Cheeses ");
         }
 
         //////////////////////////////////////////////////////////////////////////////////
@@ -199,9 +198,9 @@ public class addMeal extends Fragment {
             studentNumberinaddmeal.setError("Please Enter Code for the student");
         }else {
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("childern").child(phoneChild);
-            mDatabase.child("MorningSnack").setValue(result.toString());
-            mDatabase.child("LunchSnack").setValue(resultforlunch.toString());
-            mDatabase.child("AfternoonSnack").setValue(resultforafternoon.toString());
+            mDatabase.child("morningSnack").setValue(result.toString());
+            mDatabase.child("lunchSnack").setValue(resultforlunch.toString());
+            mDatabase.child("afternoonSnack").setValue(resultforafternoon.toString());
             Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
             Toast.makeText(getActivity(),resultforlunch,Toast.LENGTH_SHORT).show();
             Toast.makeText(getActivity(),resultforafternoon,Toast.LENGTH_SHORT).show();

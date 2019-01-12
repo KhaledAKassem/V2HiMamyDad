@@ -15,6 +15,9 @@
     <color name="followersBg">#65DCE5</color>
     <color name="followingBg">#49BEFF</color>
     <color name="grey">#E5E5E5</color>
+    <color name="transparentWhite">#cccccc</color>
+    <color name="white">#FFF</color>
+    <color name="signupColor">#066e8a</color>
 
 
 </resources>

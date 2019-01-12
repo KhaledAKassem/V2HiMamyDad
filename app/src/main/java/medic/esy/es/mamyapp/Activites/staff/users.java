@@ -60,10 +60,10 @@ public class users extends Fragment {
 
                 mUsers.clear();
                 for (DataSnapshot snapshot:dataSnapshot.getChildren()){
-//                    parent parent=new parent();
-//                    Map<String, parent> td = (HashMap<String,parent>) dataSnapshot.getValue();
+//                    parenticon parenticon=new parenticon();
+//                    Map<String, parenticon> td = (HashMap<String,parenticon>) dataSnapshot.getValue();
 //                    int size =td.size();
-//                    Collection<parent> values =new ArrayList<>();
+//                    Collection<parenticon> values =new ArrayList<>();
 //                    values = td.values();
 //                    Log.v("asdasdasd", String.valueOf(values));
                     parent users=dataSnapshot.getValue(parent.class);

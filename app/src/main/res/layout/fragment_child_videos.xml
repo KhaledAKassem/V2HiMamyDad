@@ -7,9 +7,17 @@
     android:orientation="vertical"
     >
 
+    <cn.jzvd.JzvdStd
+        android:id="@+id/videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <VideoView
-        android:id="@+id/getVideo"
-        android:layout_width="400dp"
-        android:layout_height="400dp" />
+<!--<TextureView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="400dp"-->
+    <!--android:id="@+id/textureView"-->
+
+    <!--/>-->
+
+
 </LinearLayout>

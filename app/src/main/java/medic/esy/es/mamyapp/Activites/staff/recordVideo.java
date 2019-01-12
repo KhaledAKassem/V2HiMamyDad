@@ -121,7 +121,7 @@ public class recordVideo extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<Uri> task) {
                             String downloadUrl = task.getResult().toString();
-                            upload upload = new upload(downloadUrl);
+                            upload upload = new upload(downloadUrl,"");
                             databaseReference.child(getVideoCode.getText().toString().trim()).setValue(upload);
                         }
                     });

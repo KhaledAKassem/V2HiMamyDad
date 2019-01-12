@@ -4,16 +4,23 @@ public class upload {
 
 
     private String mImageUrl;
-
+    private String date;
     public upload(){
 
     }
 
-    public upload( String mImageUrl) {
-
+    public upload(String mImageUrl, String date) {
         this.mImageUrl = mImageUrl;
+        this.date = date;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getmImageUrl() {
         return mImageUrl;

@@ -18,7 +18,7 @@ import medic.esy.es.mamyapp.R;
 
 public class addClassActivity extends Fragment {
 
-    private CheckBox goingOutside,GoingPark,Reading,ListeningMusic,Dancing,Drawing;
+    private CheckBox goingOutside,GoingPark,Reading,ListeningMusic,Dancing,Drawing,Learning_Stories;
     private CheckBox calm,angry,happy,cooperative,listening;
     private Button done;
     private EditText getphoneNumber;
@@ -58,6 +58,9 @@ public void onclickchecked(){
     ListeningMusic=(CheckBox)getView().findViewById(R.id.listeningmusic);
     Dancing=(CheckBox)getView().findViewById(R.id.dancing);
     Drawing=(CheckBox)getView().findViewById(R.id.drawing);
+    Learning_Stories=(CheckBox)getView().findViewById(R.id.learningStories);
+
+
     ////////////////////////////////////////////////////////////////
     calm=(CheckBox)getView().findViewById(R.id.calm);
     angry=(CheckBox)getView().findViewById(R.id.angry);
