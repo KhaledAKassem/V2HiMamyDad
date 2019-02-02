@@ -126,14 +126,14 @@ public class HomeForParent extends AppCompatActivity
 
 
         }
-        else if (id == R.id.chattingForParent) {
-
-            setTitle("Chatting");
-             chattingForParent chattingForParent= new chattingForParent();
-            FragmentManager fragmentManager=getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.contentParent,chattingForParent).commit();
-
-        }
+//        else if (id == R.id.chattingForParent) {
+//
+//            setTitle("Chatting");
+//             chattingForParent chattingForParent= new chattingForParent();
+//            FragmentManager fragmentManager=getSupportFragmentManager();
+//            fragmentManager.beginTransaction().replace(R.id.contentParent,chattingForParent).commit();
+//
+//        }
         else if (id == R.id.modeitem) {
 
             setTitle("Child Mode");

@@ -1,6 +1,7 @@
 package medic.esy.es.mamyapp.Activites.parent;
 
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -39,58 +40,12 @@ public class childPhotos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View root=inflater.inflate(R.layout.fragment_child_photos, container, false);
+        View root=inflater.inflate(R.layout.fragment_child_photos, container, false);
         getIMageView = (ImageView)root.findViewById(R.id.getimageview);
         progressBar=(ProgressBar)root.findViewById(R.id.progressforPhoto);
         timePic=(TextView) root.findViewById(R.id.timePic);
-        mDatabaseReference=FirebaseDatabase.getInstance().getReference("childernPhoto").child(commonParent.currentuser.getPhone()).child("mImageUrl");
-
-//        if(getIMageView.getDrawable() != null) {
-
-            mDatabaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                    if(dataSnapshot.getValue() !=null) {
-                        Picasso.with(getActivity()).load(dataSnapshot.getValue().toString()).fit().centerCrop().into(getIMageView);
-                        progressBar.setVisibility(View.INVISIBLE);
-                    }else{
-                        Toast.makeText(getActivity(),"No Pic Uploaded yet !",Toast.LENGTH_LONG).show();
-                        progressBar.setVisibility(View.INVISIBLE);
-
-                    }
-//                    timePic.setText(upload.getDate());
-                }
-
-
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    progressBar.setVisibility(View.INVISIBLE);
-                }
-            });
-
-        mDatabaseReference=FirebaseDatabase.getInstance().getReference("childernPhoto").child(commonParent.currentuser.getPhone()).child("date");
-        mDatabaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue() !=null){
-                    timePic.setText(dataSnapshot.getValue().toString());
-            }
-            else{
-
-                }
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                progressBar.setVisibility(View.INVISIBLE);
-            }
-        });
-
-
-
+        getImages getImages=new getImages();
+        getImages.execute();
 //        }
 //        else
 //
@@ -101,6 +56,60 @@ public class childPhotos extends Fragment {
 //        }
 
         return root;
+    }
+
+    public class getImages extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            mDatabaseReference=FirebaseDatabase.getInstance().getReference("childernPhoto").child(commonParent.currentuser.getPhone()).child("mImageUrl");
+            mDatabaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    if(dataSnapshot.getValue() !=null) {
+                        Picasso.with(getActivity()).load(dataSnapshot.getValue().toString()).fit().centerCrop().into(getIMageView);
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }else{
+                        Toast.makeText(getActivity(),"No Pic Uploaded yet !",Toast.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+            });
+
+            mDatabaseReference=FirebaseDatabase.getInstance().getReference("childernPhoto").child(commonParent.currentuser.getPhone()).child("date");
+            mDatabaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.getValue() !=null){
+                        timePic.setText(dataSnapshot.getValue().toString());
+                    }
+                    else{
+                    }
+                }
+
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+            });
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
     }
 
 }

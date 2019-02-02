@@ -245,6 +245,7 @@ public class profileforstaff extends Fragment {
                             String day = date.toString();
                             upload upload = new upload(downloadUrl, day);
                             databaseReference.child(uid_profile).setValue(upload);
+                            Toast.makeText(getActivity(),"Uploaded Done !",Toast.LENGTH_LONG).show();
                         }
                     });
                     Toast.makeText(getActivity(), "Upload Successfully", Toast.LENGTH_SHORT).show();

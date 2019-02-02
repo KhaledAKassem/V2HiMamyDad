@@ -42,14 +42,14 @@
             android:title="portfolio and assessments" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
 
-            <item
-                android:id="@+id/chatting"
-                android:icon="@drawable/chatting"
-                android:title="Chatting" />
-        </menu>
-    </item>
+            <!--<item-->
+                <!--android:id="@+id/chatting"-->
+                <!--android:icon="@drawable/chatting"-->
+                <!--android:title="Chatting" />-->
+        <!--</menu>-->
+    <!--</item>-->
 
 </menu>

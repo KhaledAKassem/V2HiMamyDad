@@ -1,6 +1,7 @@
 package medic.esy.es.mamyapp.Activites.staff;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import medic.esy.es.mamyapp.R;
 
@@ -23,6 +30,7 @@ public class addMeal extends Fragment {
    private CheckBox meatLunch,chickenLunch,riceLunch,macaroniLunch,soupLunch,pizzaLunch,vegetableLunch,juiceLunch,waterLunch;
    private CheckBox fluidafternoon,icecreamafternoon,yogurtafternoon,juiceafternoon,fruitafternoon,vegetableafternoon,grainsafternoon,breadsafternoon,cheesesafternoon;
    private EditText studentNumberinaddmeal;
+   private CheckBox getAllChildern;
    StringBuilder result,resultforlunch,resultforafternoon;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,7 @@ public class addMeal extends Fragment {
 
         return root;
     }
+
     public void onclickchecked(){
         studentNumberinaddmeal=(EditText)getView().findViewById(R.id.studentNumberinaddmeal);
         fluid=(CheckBox)getView().findViewById(R.id.fluidmorning);
@@ -58,7 +67,7 @@ public class addMeal extends Fragment {
         breads=(CheckBox)getView().findViewById(R.id.breadsmorning);
         cheeses=(CheckBox)getView().findViewById(R.id.cheesesmorning);
 //////////////////////////////////////////////////////////
-
+        getAllChildern=(CheckBox)getView().findViewById(R.id.allChilderns) ;
         ////////////////////////////////For Lunching ////////////////////////////////////
 
         meatLunch=(CheckBox)getView().findViewById(R.id.meatlunch);
@@ -193,10 +202,43 @@ public class addMeal extends Fragment {
         //////////////////////////////////////////////////////////////////////////////////
 
         //Displaying the message on the toast
+
+
+
         String phoneChild=studentNumberinaddmeal.getText().toString().trim();
-        if(phoneChild.isEmpty()){
-            studentNumberinaddmeal.setError("Please Enter Code for the student");
-        }else {
+        if(getAllChildern.isChecked()){
+            studentNumberinaddmeal.setFocusable(false);
+            DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("childern");
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    List<String> Userlist = new ArrayList<>();
+                    // Result will be holded Here
+                    for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                        Userlist.add(String.valueOf(dsp.getKey())); //add result into array list
+
+                    }
+
+                    for (int i=0;i<Userlist.size();i++){
+                        System.out.println("*******************************************"+Userlist.get(i));
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("childern").child(Userlist.get(i));
+                        mDatabase.child("morningSnack").setValue(result.toString());
+                        mDatabase.child("lunchSnack").setValue(resultforlunch.toString());
+                        mDatabase.child("afternoonSnack").setValue(resultforafternoon.toString());
+                        Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),resultforlunch,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),resultforafternoon,Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+//            studentNumberinaddmeal.setError("Please Enter Code for the student");
+        }else if(studentNumberinaddmeal.getText().toString() != null) {
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("childern").child(phoneChild);
             mDatabase.child("morningSnack").setValue(result.toString());
             mDatabase.child("lunchSnack").setValue(resultforlunch.toString());
@@ -204,8 +246,6 @@ public class addMeal extends Fragment {
             Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
             Toast.makeText(getActivity(),resultforlunch,Toast.LENGTH_SHORT).show();
             Toast.makeText(getActivity(),resultforafternoon,Toast.LENGTH_SHORT).show();
-
-
 
         }
     }

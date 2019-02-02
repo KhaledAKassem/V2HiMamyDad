@@ -42,13 +42,13 @@
 z
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/chattingForParent"
-                android:icon="@drawable/chatting"
-                android:title="Chatting" />
-        </menu>
-    </item>
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/chattingForParent"-->
+                <!--android:icon="@drawable/chatting"-->
+                <!--android:title="Chatting" />-->
+        <!--</menu>-->
+    <!--</item>-->
 
 </menu>

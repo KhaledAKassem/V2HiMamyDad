@@ -13,13 +13,35 @@
     android:orientation="vertical"
     tools:context=".Activites.staff.addMeal">
 
-    <EditText
-        android:id="@+id/studentNumberinaddmeal"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="enter Code number for childen" />
+        android:layout_height="@dimen/_30sdp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/studentNumberinaddmeal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="enter Code "
+            android:inputType="textPersonName" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="OR"
+    android:textStyle="bold"
+    android:textColor="#000"
+    android:textSize="@dimen/_15sdp"
+    />
+        <CheckBox
+            android:id="@+id/allChilderns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send to all " />
+        
+
+    </LinearLayout>
+
 
     <LinearLayout
     android:layout_width="match_parent"

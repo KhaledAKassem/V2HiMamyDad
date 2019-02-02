@@ -1,6 +1,7 @@
 package medic.esy.es.mamyapp.Activites.staff;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import medic.esy.es.mamyapp.R;
 
@@ -20,6 +27,7 @@ public class addClassActivity extends Fragment {
 
     private CheckBox goingOutside,GoingPark,Reading,ListeningMusic,Dancing,Drawing,Learning_Stories;
     private CheckBox calm,angry,happy,cooperative,listening;
+    private CheckBox allChildernsActivities;
     private Button done;
     private EditText getphoneNumber;
     StringBuilder result;
@@ -59,7 +67,7 @@ public void onclickchecked(){
     Dancing=(CheckBox)getView().findViewById(R.id.dancing);
     Drawing=(CheckBox)getView().findViewById(R.id.drawing);
     Learning_Stories=(CheckBox)getView().findViewById(R.id.learningStories);
-
+    allChildernsActivities=(CheckBox)getView().findViewById(R.id.allChildernsActivities);
 
     ////////////////////////////////////////////////////////////////
     calm=(CheckBox)getView().findViewById(R.id.calm);
@@ -116,19 +124,40 @@ public void onclickchecked(){
 
     //Displaying the message on the toast
     String phoneChild=getphoneNumber.getText().toString().trim();
-    if(phoneChild.isEmpty()){
-        getphoneNumber.setError("Please Enter number of the student");
-    }else {
+    if(allChildernsActivities.isChecked()){
+        getphoneNumber.setFocusable(false);
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("childern");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<String> Userlist = new ArrayList<>();
+                // Result will be holded Here
+                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                    Userlist.add(String.valueOf(dsp.getKey())); //add result into array list
+
+                }
+                for (int i=0;i<Userlist.size();i++){
+                    System.out.println("*******************************************"+Userlist.get(i));
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("childern").child(Userlist.get(i));
+                    mDatabase.child("Activity").setValue(result.toString());
+                    mDatabase.child("Mode").setValue(resultForMode.toString());
+                    Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),resultForMode,Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }else if(getphoneNumber.getText().toString() != null){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("childern").child(phoneChild);
         mDatabase.child("Activity").setValue(result.toString());
         mDatabase.child("Mode").setValue(resultForMode.toString());
         Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
         Toast.makeText(getActivity(),resultForMode,Toast.LENGTH_SHORT).show();
-
-
     }
 }
-
-
-
 }
