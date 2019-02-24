@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +27,7 @@ import medic.esy.es.mamyapp.R;
 public class addClassActivity extends Fragment {
 
     private CheckBox goingOutside,GoingPark,Reading,ListeningMusic,Dancing,Drawing,Learning_Stories;
-    private CheckBox calm,angry,happy,cooperative,listening;
+    private RadioButton calm,angry,happy,cooperative,listening;
     private CheckBox allChildernsActivities;
     private Button done;
     private EditText getphoneNumber;
@@ -70,11 +71,11 @@ public void onclickchecked(){
     allChildernsActivities=(CheckBox)getView().findViewById(R.id.allChildernsActivities);
 
     ////////////////////////////////////////////////////////////////
-    calm=(CheckBox)getView().findViewById(R.id.calm);
-    angry=(CheckBox)getView().findViewById(R.id.angry);
-    happy=(CheckBox)getView().findViewById(R.id.happy);
-    cooperative=(CheckBox)getView().findViewById(R.id.cooperative);
-    listening=(CheckBox)getView().findViewById(R.id.listening);
+    calm=(RadioButton)getView().findViewById(R.id.calm);
+    angry=(RadioButton) getView().findViewById(R.id.angry);
+    happy=(RadioButton) getView().findViewById(R.id.happy);
+    cooperative=(RadioButton) getView().findViewById(R.id.cooperative);
+    listening=(RadioButton) getView().findViewById(R.id.listening);
 //////////////////////////////////////////////////////////
     result=new StringBuilder();
 
@@ -121,13 +122,13 @@ public void onclickchecked(){
         resultForMode.append("Listening");
     }
 
-
     //Displaying the message on the toast
     String phoneChild=getphoneNumber.getText().toString().trim();
     if(allChildernsActivities.isChecked()){
         getphoneNumber.setFocusable(false);
         DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("childern");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<String> Userlist = new ArrayList<>();
@@ -139,10 +140,17 @@ public void onclickchecked(){
                 for (int i=0;i<Userlist.size();i++){
                     System.out.println("*******************************************"+Userlist.get(i));
                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("childern").child(Userlist.get(i));
-                    mDatabase.child("Activity").setValue(result.toString());
-                    mDatabase.child("Mode").setValue(resultForMode.toString());
-                    Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(),resultForMode,Toast.LENGTH_SHORT).show();
+                    if(result.toString() !=null){
+                        mDatabase.child("Activity").setValue(result.toString());
+                        Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
+
+                    }
+                    if (resultForMode.toString().length()>3){
+                        mDatabase.child("Mode").setValue(resultForMode.toString());
+                        Toast.makeText(getActivity(),"Mode"+resultForMode,Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getActivity(),"No Mode Added",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -154,10 +162,15 @@ public void onclickchecked(){
 
     }else if(getphoneNumber.getText().toString() != null){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("childern").child(phoneChild);
-        mDatabase.child("Activity").setValue(result.toString());
-        mDatabase.child("Mode").setValue(resultForMode.toString());
-        Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),resultForMode,Toast.LENGTH_SHORT).show();
+       if(result.toString().length() >2) {
+           mDatabase.child("Activity").setValue(result.toString());
+           Toast.makeText(getActivity(),result,Toast.LENGTH_SHORT).show();
+       }
+       if(resultForMode.toString().length()>2){
+           mDatabase.child("Mode").setValue(resultForMode.toString());
+           Toast.makeText(getActivity(),resultForMode,Toast.LENGTH_SHORT).show();
+       }
+
     }
 }
 }

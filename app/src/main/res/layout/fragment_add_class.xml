@@ -115,42 +115,49 @@ android:orientation="vertical"
             android:text="Mod for child"
             android:textSize="30dp" />
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <CheckBox
+
+
+
+        <RadioButton
             android:id="@+id/calm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Calm" />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/angry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Angry" />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/happy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Happy" />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/cooperative"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cooperative" />
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/listening"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Listening" />
 
+        </RadioGroup>
 
     </LinearLayout>
 
